@@ -1,18 +1,18 @@
-☐ Criar um arquivo assets/js/index.js
-☐ Criar nesse arquivo um array (tarefas)
+✔ Criar um arquivo assets/js/index.js @done(20-05-13 14:46)
+✔ Criar nesse arquivo um array (tarefas) @done(20-05-13 14:46)
   Esse array deve conter objetos literais com os campos
     . id: numérico
     . texto: string
     . prioridade: numerico
     . feito: booleano
 
-☐ Linkar index.js ao index.html
-☐ Fazer uma função render(t)
+✔ Linkar index.js ao index.html @done(20-05-13 14:53)
+✔ Fazer uma função render(t) @done(20-05-13 15:58)
   Essa função deve receber como parâmetro um array
   de tarefas t e exibir na página as tarefas que
   estão no array t
   
-☐ Criar a função create(texto)
+✔ Criar a função create(texto) @done(20-05-13 16:17)
   Essa função deve receber um texto como parâmetro e,
   com base nesse texto, criar um novo objeto tarefa
 
@@ -37,4 +37,3 @@
 
 ☐ Fazer com que o array de tarefas seja guardado/recuperado no localStorage do navegador
 
-☐ Fazer com que essa aplicação seja um PWA
