@@ -1,24 +1,24 @@
 let tarefas = [
     {
-        id: 1,
+        id: 10,
         texto: "Escovar os dentes",
         prioridade: 3,
         feito: true
     },
     {
-        id: 2,
+        id: 20,
         texto: "Gravar realização de desafio",
         prioridade: 1,
         feito: true
     },
     {
-        id: 3,
+        id: 30,
         texto: "Fazer almoço",
         prioridade: 2,
         feito: false
     },
     {
-        id: 4,
+        id: 45,
         texto: "Pagar escolas",
         prioridade: 3,
         feito: false
@@ -99,13 +99,20 @@ let form = document.getElementById('form'); // Capturar o form
 // }
 
 // FORMA 2 = = = = = = = = = = = =
-form.addEventListener('submit',(evt) => {
+
+// Crio a função:
+const onFormSubmit = (evt) => {
 
     // Evitar o comportamento padrão de um form
     evt.preventDefault();
-
-    // Capturar o texto digitado pelo usuário
+    
+    // Capturar o texto digitado pelo utextosuário
     let texto = document.getElementById("tf_2do").value;
+
+    // Testando se o texto é vazio 
+    if (texto.trim() == '') {
+        return;
+    }
 
     // Verificar se existe prioridade settada nesse texto
     let strInicio = texto.substr(0,3);
@@ -143,6 +150,9 @@ form.addEventListener('submit',(evt) => {
     // Lipar o campo de texto
     document.getElementById("tf_2do").value = ""; 
 
-});
+}
+
+// Associo o evento à função
+form.addEventListener('submit', onFormSubmit);
 
 render(tarefas);
