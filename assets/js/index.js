@@ -44,10 +44,15 @@ const render = (tarefas) => {
 
         // Criando uma linha de tabela
         let row = document.createElement('tr');
+        if(tarefa.feito){
+            //row.className = "done";
+            row.classList.add("done");
+        }
 
         // Criar o input checkbox
         let checkbox = document.createElement('input');
         checkbox.setAttribute("type","checkbox");
+        checkbox.checked = tarefa.feito;
 
         // Criar a célula que vai conter o checkbox
         let tdCheck = document.createElement('td');
