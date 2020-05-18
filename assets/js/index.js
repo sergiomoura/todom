@@ -112,8 +112,13 @@ const onDeleteClick = (evt) => {
  * feito: false
  */
  const create = (texto,prioridade) => {
+
+    // Determinando o id do novo elemento
+    let id = (tarefas.length == 0 ? 1 : tarefas[tarefas.length - 1].id + 1);
+    
+    // retornando a nova tarefa
     return {
-        id:tarefas[tarefas.length - 1].id + 1,
+        id,
         texto,
         prioridade,
         feito: false
