@@ -25,6 +25,9 @@ let tarefas = [
     }
 ]
 
+// Array de prioridades
+// const prioridades = ['baixa','média','alta'];
+const prioridades = {1:'baixa',2:'média',3:'alta'}
 const render = (tarefas) => {
 
     // Capturar o elemento que contém a lista de tarefas
@@ -58,6 +61,11 @@ const render = (tarefas) => {
         tdTexto.innerText = tarefa.texto;
         row.appendChild(tdTexto);
 
+        // Criar a td da prioridade
+        let tdPrioridade = document.createElement('td');
+        tdPrioridade.innerText = prioridades[tarefa.prioridade];
+        row.appendChild(tdPrioridade);
+
         // Criar td de ações
         let tdAcoes = document.createElement('td');
         let i = document.createElement('i');
@@ -89,6 +97,13 @@ const render = (tarefas) => {
     }
  }
 
+ /**
+  * Criar uma função destroy que recebne o id de uma tarefa como parâmetro
+  * e remove essa tarefa do array  * 
+  */
+const destroy = (id) => {
+
+}
 
 // Capturar elementos importantes da página
 let form = document.getElementById('form'); // Capturar o form
