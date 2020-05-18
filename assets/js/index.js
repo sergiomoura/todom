@@ -71,6 +71,8 @@ const render = (tarefas) => {
         let i = document.createElement('i');
         i.className = "material-icons";
         i.innerText = "delete";
+        i.addEventListener('click', onDeleteClick);
+        i.setAttribute("id", tarefa.id);
         tdAcoes.appendChild(i);
         row.appendChild(tdAcoes);
 
@@ -79,6 +81,27 @@ const render = (tarefas) => {
 
     }
 
+}
+
+const onDeleteClick = (evt) => {
+    
+    // Capturando id da tarefa a ser removida;
+    let id = Number(evt.target.id);
+
+    // Confirmar a exclusão
+    if(!window.confirm("Tem certeza que deseja excluir a tarefa?")){
+
+        // Usuário clicou em não. Abortando.
+        return;
+
+    }
+    
+    // Remover a tarefa do array
+    destroy(id);
+
+    // Renderizar a lista novamente
+    render(tarefas);
+    
 }
 
 /**
@@ -102,7 +125,7 @@ const render = (tarefas) => {
   * e remove essa tarefa do array  * 
   */
 const destroy = (id) => {
-
+    tarefas = tarefas.filter(t => t.id != id);
 }
 
 // Capturar elementos importantes da página
