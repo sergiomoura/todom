@@ -30,7 +30,7 @@ module.exports = {
 
         // Criando o token jwt: JSON WEB TOKEN
         let token = jwt.sign({usuario}, "segredo", {expiresIn:5*60}); // Expira em 5min
-
+        
         // Retornando as info do usuário com o token
         return res.status(200).json({usuario, token});
     }

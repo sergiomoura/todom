@@ -23,7 +23,7 @@ document.querySelector("form").addEventListener(
                 if(data != "Erro"){
                     let {usuario, token} = data;
                     localStorage.setItem("@todom:token",token);
-                    getTarefas()   
+                    getTarefas();
                 }
             }
         )
@@ -40,7 +40,6 @@ function login(email,senha){
         body:JSON.stringify({email,senha}),
         headers
     });
-
 
 }
 
