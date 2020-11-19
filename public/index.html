@@ -12,21 +12,18 @@
 </head>
 
 <body>
-	<!--
-	<aside>
-		<h1>Todo List em JavaScript puro</h1>
-		<h3>Uso</h3>
-		<p>Basta adicionar um texto e pressionar [enter] para adicionar uma tarefa.
-			O texto pode ser precedido de #1, #2 ou #3 para atribuir prioridades baixa,
-			média ou alta à tarefa. Por padrão, a prioridade será baixa.
-		</p>
-		<p>Clicar no checkbox da esquerda fará com que a tarefa seja marcada como "feita".</p>
-		<p>Clicar na lixeira removerá a tarefa da lista.</p>
-		<p>
-			Para saber mais, <a href="https://github.com/sergiomoura/todom">visite o repositório do projeto</a>
-		</p>
-	</aside>
-	-->
+	<div id="login">
+		<label>
+			E-mail:
+			<input type="text" name="email" id="email" placeholder="Digite seu email">
+		</label>
+		<label>
+			Senha:
+			<input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+		</label>
+		<button id="btLogar">Logar</button>
+	</div>
+
 	<main>
 		<form id="form">
 			<input type="text" name="tf_2do" id="tf_2do" autocomplete="off">
@@ -69,6 +66,7 @@
 		</table>
 	</main>
 	<script src="js/index.js"></script>
+	<script src="js/login.js"></script>
 </body>
 
 </html>
