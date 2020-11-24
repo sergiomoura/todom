@@ -1,7 +1,7 @@
 ✔ Validar o email/senha do usuário (Autenticar) @done(20-11-24 15:29)
 ☐ Se usuário ok:
     ✔ Criar token e enviar para o cliente esse token @done(20-11-24 15:29)
-    - Guardar esse token no sessionStorage
+    ✔ Guardar esse token no sessionStorage @done(20-11-24 16:15)
 ☐ Carregar as tarefas do banco
     - Disparar req
     - criar rota get /tarefas
