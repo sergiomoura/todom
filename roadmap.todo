@@ -3,7 +3,10 @@
     ✔ Criar token e enviar para o cliente esse token @done(20-11-24 15:29)
     ✔ Guardar esse token no sessionStorage @done(20-11-24 16:15)
 ☐ Carregar as tarefas do banco
-    - Disparar req
-    - criar rota get /tarefas
-    - criar controller TarefasController.index para retornar as tarefas
-    - Exibir lista de tarefas
+    ✔ Disparar req @done(20-11-26 14:17)
+    ✔ criar rota get /tarefas @done(20-11-26 14:17)
+    ✔ criar controller TarefasController.index para retornar as tarefas @done(20-11-26 14:17)
+☐ Validação
+    ☐ Criem, na pasta middlewares, um middleware chamado VerificaSeTemToken.js
+    - Verificar se o token consta no header "Authorization" da requisição com o formato "bearer hbv1j2h3j12h3j12h3j1h23g31hj2g3k123jgk"
+    
