@@ -5,6 +5,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require('express');
 const AuthRouter = require('./routes/AuthRouter');
+const TarefasRouter = require('./routes/TarefasRouter');
 
 // Criando o app express
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Aplicando middlewares de roteadores
 app.use('/',AuthRouter);
+app.use('/',TarefasRouter);
 
 // Levantando o servidor
 app.listen(process.env.HTTP_PORT);

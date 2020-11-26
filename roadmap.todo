@@ -1,6 +1,9 @@
-☐ Por arquivos de front-end na public
-☐ Fazer com que a rota '/' envie o index.html
-☐ Criar rota > controller para login
-☐ Criar middleware para verificar existência de token no header
-☐ Criar Rota que carrega as tarefas do usuário
-☐ Proteger rota com o middleware
+✔ Validar o email/senha do usuário (Autenticar) @done(20-11-24 15:29)
+☐ Se usuário ok:
+    ✔ Criar token e enviar para o cliente esse token @done(20-11-24 15:29)
+    ✔ Guardar esse token no sessionStorage @done(20-11-24 16:15)
+☐ Carregar as tarefas do banco
+    - Disparar req
+    - criar rota get /tarefas
+    - criar controller TarefasController.index para retornar as tarefas
+    - Exibir lista de tarefas
