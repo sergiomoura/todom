@@ -7,6 +7,6 @@
     ✔ criar rota get /tarefas @done(20-11-26 14:17)
     ✔ criar controller TarefasController.index para retornar as tarefas @done(20-11-26 14:17)
 ☐ Validação
-    ☐ Criem, na pasta middlewares, um middleware chamado VerificaSeTemToken.js
+    ☐ Criem, na pasta middlewares, um middleware chamado "VerificaSeTemToken.js"
     - Verificar se o token consta no header "Authorization" da requisição com o formato "bearer hbv1j2h3j12h3j12h3j1h23g31hj2g3k123jgk"
     

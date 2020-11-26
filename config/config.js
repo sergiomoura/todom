@@ -7,5 +7,6 @@ module.exports = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: "mysql",
-    operatorsAliases: "0"
+    operatorsAliases: "0",
+    tokenSecret: "palavrasecreta",
 }

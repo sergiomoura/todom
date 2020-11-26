@@ -1,6 +1,7 @@
 const { Usuario } = require('../models'); 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../config/config');
 
 module.exports = {
     login: async (req, res) =>{
@@ -28,7 +29,7 @@ module.exports = {
         user.senha = undefined;
 
         // Gerar o token (jwt - biblioteca: jsonwebtoken)
-        const token = jwt.sign({user}, "palavrasecreta");
+        const token = jwt.sign({user}, config.tokenSecret);
 
         // Enviar o token
         return res.json({user, token});
