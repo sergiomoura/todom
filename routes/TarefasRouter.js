@@ -6,5 +6,6 @@ const ValidaToken = require("../middlewares/ValidaToken");
 const VerificaSeTemToken = require("../middlewares/VerificaSeTemToken");
 
 router.get('/tarefas', VerificaSeTemToken, ValidaToken, TarefasController.index);
+router.post('/tarefas', VerificaSeTemToken, ValidaToken, TarefasController.store);
 
 module.exports = router;
