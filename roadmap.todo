@@ -7,6 +7,12 @@
     ✔ criar rota get /tarefas @done(20-11-26 14:17)
     ✔ criar controller TarefasController.index para retornar as tarefas @done(20-11-26 14:17)
 ☐ Validação
-    ☐ Criem, na pasta middlewares, um middleware chamado "VerificaSeTemToken.js"
-    - Verificar se o token consta no header "Authorization" da requisição com o formato "bearer hbv1j2h3j12h3j12h3j1h23g31hj2g3k123jgk"
-    
+    ✔ Criem, na pasta middlewares, um middleware chamado "VerificaSeTemToken.js" @done(20-12-01 14:22)
+    ✔ Verificar se o token consta no header "Authorization" da requisição com o formato "bearer hbv1j2h3j12h3j12h3j1h23g31hj2g3k123jgk" @done(20-12-01 14:22)
+
+Quais rotas (ENDPOINTS) nós precisamos codar no back end e o que retornariam:
+    ☐ get => "/tarefas" [TarefasController.index]: Retornar todas as tarefas de um usuário
+    ☐ post => "/tarefas" [TarefasController.store]: Adicionar uma tarefa
+    ☐ delete => "/tarefas/:id" [TarefasController.destroy]: Remover uma tarefa do usuário
+    ☐ put => "/tarefas/feito/:id" [TarefasController.marcarFeito]: 
+    ☐ put => "/tarefas/desfeito/:id" [TarefasController.marcarNaoFeito]: 
