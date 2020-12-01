@@ -16,5 +16,17 @@ module.exports = {
             usuario_id: req.user.id
         });
         res.status(201).json(tarefa);
+    },
+
+    destroy: async (req, res) => {
+        console.log(req.params.id);
+        
+        await Tarefa.destroy({
+            where:{
+                usuario_id: req.user.id,
+                id: req.params.id,
+            }
+        });
+        res.json({"msg":"Ok"});
     }
 }
