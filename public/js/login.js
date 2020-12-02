@@ -2,6 +2,7 @@
 const tfEmail = document.getElementById("email");
 const tfSenha = document.getElementById("senha");
 const btLogin = document.getElementById("btnLogin");
+const formLogin = document.getElementById("formLogin");
 
 // Verificando se capturou os três elementos;
 console.log(tfEmail,tfSenha,btLogin)
@@ -24,11 +25,11 @@ const login = (email, senha) => {
 }
 
 // Associar a execução da função login a submissão do formulário formLogin
-/*
-btLogin.addEventListener(
-    "click",
-    () => {
+formLogin.addEventListener(
+    "submit",
+    (evt) => {
+        console.log(evt);
+        evt.preventDefault();
         login(tfEmail.value, tfSenha.value);
     }
 )
-*/
