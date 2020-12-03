@@ -28,5 +28,49 @@ module.exports = {
             }
         });
         res.json({"msg":"Ok"});
+    },
+
+    marcarFeito: async (req, res) => {
+
+        // Carregar a tarefa que pretendemos marcar como feita
+        let tarefa = await Tarefa.findOne(
+            {
+                where:{
+                    id:req.params.id,
+                    usuario_id:req.user.id
+                }
+            });
+
+        // Alterar o status da tarefa
+        tarefa.feito = true;
+
+        // Salvar a tarefa no BD
+        tarefa.save();
+
+        // Retornar mensagem de sucesso
+        res.json({msg:"ok"});
+
+    },
+
+    marcarNaoFeito: async (req, res) => {
+
+        // Carregar a tarefa que pretendemos marcar como feita
+        let tarefa = await Tarefa.findOne(
+            {
+                where:{
+                    id:req.params.id,
+                    usuario_id:req.user.id
+                }
+            });
+
+        // Alterar o status da tarefa
+        tarefa.feito = false;
+
+        // Salvar a tarefa no BD
+        tarefa.save();
+
+        // Retornar mensagem de sucesso
+        res.json({msg:"ok"});
+
     }
 }
