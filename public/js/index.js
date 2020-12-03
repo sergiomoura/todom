@@ -1,29 +1,5 @@
-let tarefas = [
-    {
-        id: 10,
-        texto: "Escovar os dentes",
-        prioridade: 3,
-        feito: true
-    },
-    {
-        id: 20,
-        texto: "Gravar realização de desafio",
-        prioridade: 1,
-        feito: true
-    },
-    {
-        id: 30,
-        texto: "Fazer almoço",
-        prioridade: 2,
-        feito: false
-    },
-    {
-        id: 45,
-        texto: "Pagar escolas",
-        prioridade: 3,
-        feito: false
-    }
-]
+// Declarando variável global para armazenar tarefas;
+let tarefas = [];
 
 // Array de prioridades
 // const prioridades = ['baixa','média','alta'];

@@ -65,14 +65,23 @@ const exibirErroDeLogin = () => {
     console.error("Falha no login");
 }
 
-const carregarTarefas = () => {
+const carregarTarefas = async () => {
 
-    // Disparar a requisição get para /tarefas
-    fetch('/tarefas', {
+    // Capturando response da req contra get "/tarefas"
+    let response = await fetch('/tarefas', {
         method: "GET",
         headers:{
             authorization: `bearer ${sessionStorage.getItem('token')}`
         }
     });
+
+    // Guardando as tarefas carregas no array
+    // global tarefas
+    tarefas = await response.json();
+
+    // Exibindo as tarefas
+    render(tarefas);
+
+
 
 }
