@@ -10,6 +10,7 @@ module.exports = {
     },
 
     store: async (req, res) => {
+        
         let tarefa = await Tarefa.create({
             texto: req.body.texto,
             prioridade: req.body.prioridade,

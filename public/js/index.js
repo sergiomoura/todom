@@ -110,20 +110,24 @@ const onCheckClick = evt => {
  * prioridade: com base na prioridade passada como parâmetro
  * feito: false
  */
- const create = (texto,prioridade) => {
+ const create = async (texto, prioridade) => {
 
-    // Determinando o id do novo elemento
-    let id = (tarefas.length == 0 ? 1 : tarefas[tarefas.length - 1].id + 1);
-    
+    let response = await fetch(
+        "/tarefas",
+        {
+            method:"POST",
+            body: JSON.stringify({texto,prioridade}),
+            headers: {
+                authorization:`bearer ${sessionStorage.getItem('token')}`,
+                "Content-Type":"application/json"
+            }
+        }
+    )
+
+    let tarefa = await response.json();
+
     // retornando a nova tarefa
-    return {
-        id,
-        texto,
-        prioridade,
-        feito: false
-    }
-
-    // Alteração para provocar conflito!!
+    return tarefa;
 
  }
 
@@ -146,7 +150,7 @@ let form = document.getElementById('form'); // Capturar o form
 // FORMA 2 = = = = = = = = = = = =
 
 // Crio a função:
-const onFormSubmit = (evt) => {
+const onFormSubmit = async (evt) => {
 
     // Evitar o comportamento padrão de um form
     evt.preventDefault();
@@ -184,7 +188,7 @@ const onFormSubmit = (evt) => {
     }
 
     // Criar o objeto de tarefa sabendo o texto e a prioridade
-    let tarefa = create(texto,prioridade);
+    let tarefa = await create(texto,prioridade);
 
     // Adicionar o objeto tarefa ao array de tarefas
     tarefas.push(tarefa);
