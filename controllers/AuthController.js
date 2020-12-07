@@ -1,5 +1,7 @@
 const { Usuario } = require('../models');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 module.exports = {
     index: async (req, res) =>{
@@ -19,13 +21,17 @@ module.exports = {
         // Valida a senha cadastrada do usuário com a senha enviada
         // Caso a validação falhe, retornar erro 401
         if(!bcrypt.compareSync(senha, usuario.senha)){
-            return res.status(401).json({error:"Falha no login!!"});
+            return res.status(401).json({error:"Falha no login"});
         }
 
-        res.send("Login validado!!!!");
-        // ...
+        // Removendo a senha do objeto usuario...
+        usuario.senha = undefined;
 
-        //console.log(req.body);
-        //res.send(req.body);
+        // Criar o token
+        let token = jwt.sign({usuario}, process.env.SEGREDO);
+
+        // Enviar o token par ao cliente
+        return res.json({usuario,token});
+
     }
 }
