@@ -94,15 +94,51 @@ const onCheckClick = evt => {
     // capturando o id da tarefa clicada
     let id = Number(evt.target.id.replace('chk_',''));
 
-    // Levantar tarefa do id capturado
-    let tarefa = tarefas.find(t => t.id == id);
-
-    // alterar o campo feito
-    tarefa.feito = !tarefa.feito;
-
-    // Alterando a classe da tr que contem o td que contem o checkbox;
-    evt.target.parentNode.parentNode.classList.toggle('done');
+    // Alterar status da tarefa no servidor
+    updateFeito(id).then(
+        () => {
+            // Alterando a classe da tr que contem o td que contem o checkbox;
+            evt.target.parentNode.parentNode.classList.toggle('done');
+        }
+    )
     
+}
+
+/**
+ * Criar uma função que altere o status feito/não feito de uma dada tarefa
+ */
+const updateFeito = async (id) => {
+
+    // Capturar a tarefa do id dado
+    let tarefa = tarefas.find(t => t.id == id);
+    
+    // Verificar se tarefa foi feita ou não
+    let rota;
+    if(tarefa.feito){
+        // Se tarefa foi feita:  definir rota para '/tarefas/desfeito/:id'
+        rota = `/tarefas/desfeito/${id}`;
+    } else {
+        // Se tarefa não foi feita: definir rota para '/tarefas/feito/:id'
+        rota = `/tarefas/feito/${id}`;
+    }
+
+    // Disparar req PUT para rota
+    let response = await fetch(rota, {
+        method: "PUT",
+        headers: {
+            "Authorization": `bearer ${sessionStorage.getItem('token')}`
+        }
+    });    
+
+    let msg = await response.json();
+
+    // Em recebendo a resposta do servidor, atualizar o status da tarefa
+    // no array de tarefas
+    if(msg){
+        tarefa.feito = !tarefa.feito;
+    }
+
+
 }
 
 /**
