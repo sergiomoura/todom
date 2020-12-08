@@ -80,10 +80,12 @@ const onDeleteClick = (evt) => {
     }
     
     // Remover a tarefa do array
-    destroy(id);
+    destroy(id).then(
+        () => render(tarefas)
+    )
 
     // Renderizar a lista novamente
-    render(tarefas);
+    
     
 }
 
@@ -135,8 +137,27 @@ const onCheckClick = evt => {
   * Criar uma função destroy que recebne o id de uma tarefa como parâmetro
   * e remove essa tarefa do array  * 
   */
-const destroy = (id) => {
-    tarefas = tarefas.filter(t => t.id != id);
+
+const destroy = async (id) => {
+    /**
+     * Altere essa função para que ela dispare uma requisição delete
+     * para a rota /tarefas/:id e, assim que obtiver a confirmação da
+     * deleção da tarefa, remover a tarefa do front.
+     */
+
+    let response = await fetch(`/tarefas/${id}`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `bearer ${sessionStorage.getItem('token')}`
+        }
+    });
+
+    let msg = response.json();
+
+    if(msg){
+        tarefas = tarefas.filter(t => t.id != id);
+    }
+
 }
 
 // Capturar elementos importantes da página
