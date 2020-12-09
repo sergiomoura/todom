@@ -3,6 +3,7 @@ require("dotenv").config();
 
 // Importando roteadores
 const AuthRouter = require('./routes/AuthRouter');
+const TarefasRouter = require('./routes/TarefasRouter');
 
 // Trazendo dependências
 const path = require("path");
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // Configurando roteadores
 app.use('/', AuthRouter);
+app.use('/', TarefasRouter);
 
 // Levantando o servidor
 app.listen(process.env.HTTP_PORT);
