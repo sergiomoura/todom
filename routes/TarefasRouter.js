@@ -1,3 +1,6 @@
+// Importar os middlewares
+const VerificaSeTemToken = require('../middleware/VeriricaSeTemToken')
+
 // importar o express
 const express = require('express');
 
@@ -5,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 
 // Criar uma rota get para /tarefas retornando qquer coisa...
-router.get('/tarefas', (req,res) => {res.send('qualquer coisa...')})
+router.get('/tarefas', VerificaSeTemToken, (req,res) => {res.send(req.token)})
 
 // Exportar o router
 module.exports = router;
